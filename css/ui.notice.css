@@ -1,0 +1,108 @@
+#notifications {
+	position: fixed;
+	z-index: 1000;
+	top: 70px;
+	right: 0;
+	max-width: 100%;
+	height: 0;
+}
+
+#notifications > .notice {
+	width: 350px;
+	max-width: 100%;
+	margin: 0 0 15px;
+	padding: 0 15px;
+}
+
+#notifications > .notice.height-transition {
+	transition: height .3s ease, margin-bottom .3s ease;
+}
+
+#notifications > .notice > div {
+	position: relative;
+	width: 100%;
+	border-radius: 3px;
+	background: #fafafa;
+	box-shadow: 0 1px 5px 0 rgba(0,0,0,.3);
+
+	transform: translateX(0);
+	opacity: 1;
+
+	transition: transform .35s cubic-bezier(.23,1,.32,1), opacity .35s cubic-bezier(.23,1,.32,1);
+}
+
+
+#notifications > .notice.hide > div {
+	transition: transform .35s cubic-bezier(.68,0,.77,.0), opacity .35s  cubic-bezier(.68,0,.77,.0);
+}
+
+#notifications > .notice.hide > div {
+	transform:  translateX(100%);
+	opacity: 0;
+}
+
+#notifications > .notice.success > div {
+	background: #E8F5E9;
+}
+
+#notifications > .notice.error > div {
+	background: #FFEBEE;
+}
+
+#notifications > .notice > div > .title {
+	width: 100%;
+	height: 22px;
+	margin: 10px 0;
+	padding: 0 32px 0 10px;
+	line-height: 22px;
+	font-size: 18px;
+	font-weight: 500;
+	color: #5677fc;
+}
+
+#notifications > .notice.success  > div > .title {
+	color: #4CAF50;
+}
+
+#notifications > .notice.error > div > .title {
+	color: #F44336;
+}
+
+#notifications > .notice > div > .content {
+	width: 100%;
+
+	padding: 0 10px 10px;
+	line-height: 21px;
+	font-size: 14px;
+	font-weight: 400;
+	color: #212121;
+}
+
+#notifications > .notice > div > button.close {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	width: 22px;
+	height: 22px;
+	padding: 0;
+	border-radius: 50%;
+	background: #f36c60;
+
+	color: #fde0dc;
+
+	font-size: 12px;
+	line-height: 22px;
+	text-align: center;
+	cursor: pointer;
+
+	transition: background .2s ease, border .2s ease;
+}
+
+#notifications > .notice > div > button.close i {
+	font-size: inherit;
+	line-height: inherit;
+}
+
+#notifications > .notice > div > button.close:hover {
+	background: #e84e40;
+}

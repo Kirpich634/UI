@@ -1,0 +1,322 @@
+#nav {
+	background: #3F51B5;
+}
+
+#nav > button.menu-container-interaction {
+    position: fixed;
+    z-index: 1010;
+    right: 30px;
+	bottom: 30px;
+    width: 52px;
+    height: 52px;
+    padding: 10px;
+	border-radius: 50%;
+    background-color: rgba(50,50,50,.3);
+    transition: background-color .3s ease, border-color .3s ease;
+}
+
+#nav > button:hover {
+    background-color: rgba(50,50,50,.5);
+}
+
+#nav > button > hr {
+    display: block;
+    height: 2px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffff;
+    opacity: .5;
+    transition: width .3s ease, opacity .3s ease, transform .3s ease;
+}
+
+#nav > button:hover > hr {
+    opacity: 1;
+}
+
+#nav > button.show > hr{
+    width: 28px;
+}
+
+#nav > button.hide > hr{
+    width: 20px;
+}
+
+#nav > button > hr:nth-of-type(1) {
+    margin-top: 0;
+}
+#nav > button > hr:nth-of-type(2) {
+    margin-top: 5px;
+}
+#nav > button > hr:nth-of-type(3) {
+    margin-top: 5px;
+}
+
+#nav > button.show > hr:nth-of-type(1),
+#nav > button.show > hr:nth-of-type(3) {
+    transform: translateY(0px) rotate(0deg);
+}
+
+#nav > button.hide > hr:nth-of-type(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+#nav > button.hide > hr:nth-of-type(2) {
+    opacity: 0;
+}
+
+#nav > button.hide > hr:nth-of-type(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+#nav .container {
+    background-color: Green;
+}
+
+#nav .logo {
+    float: left;
+}
+
+#nav .menu-container {
+    overflow: auto;
+    position: fixed;
+    z-index: 1000;
+    float: right;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 150px 30px 112px 30px;
+    background: rgba(63,81,181,.9);
+    color: #E8EAF6;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container {
+        overflow: visible;
+        position: relative;
+        z-index: auto;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        width: auto;
+        padding: 0;
+        background-color: red;
+    }
+}
+
+#nav .menu-container > div {
+    display: table;
+    float: right;
+    min-height: 100%;
+}
+
+#nav .menu-container > div > menu {
+    overflow: visible;
+    position: relative;
+    display: table-cell;
+    vertical-align: bottom;
+}
+
+#nav .menu-container:before,
+#nav .menu-container:after {
+    content: '';
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    left: 0;
+    height: 0;
+    box-shadow: 0 0 200px 120px #3F51B5;
+}
+
+#nav .menu-container:before {
+    top: 0;
+}
+
+#nav .menu-container:after {
+    bottom: 0;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container:before,
+    #nav .menu-container:after {
+        display: none;
+    }
+}
+
+#nav .menu-container > div > menu li > a {
+    display: block;
+    float: left;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.7);
+    transition: color .3s ease;
+}
+
+#nav .menu-container > div > menu li > a:hover {
+    color: rgba(255,255,255,.95);
+}
+
+#nav .menu-container > div > menu > li {
+	float: left;
+    clear: both;
+    margin: 5px 0;
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 300;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu > li {
+        clear: none;
+    }
+}
+
+#nav .menu-container > div > menu > li > a {
+    padding: 5px;
+    min-width: 100%;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu > li > a {
+        padding: 5px 15px;
+    }
+}
+
+#nav .menu-container > div > menu > li:hover {
+    color: rgba(255,255,255,.95);
+}
+
+@media (min-width: 992px) {
+  	#nav .menu-container > div > menu > li {
+		float: left;
+        margin: 0;
+   		line-height: 26px;
+		font-size: 16px;
+	}
+}
+
+#nav .menu-container > div > menu li.sub-menu {
+    position: relative;
+    padding-left: 42px;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu {
+        position: static;
+        padding-left: 0;
+    }
+}
+
+
+#nav .menu-container > div > menu li.sub-menu > a {
+    padding: 5px 0 5px 5px;
+    min-width: 0;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > a {
+        padding: 5px 0 5px 15px;
+    }
+}
+
+
+#nav .menu-container > div > menu li.sub-menu > button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    float: right;
+    height: 100%;
+	margin-left: 15px;
+    padding: 5px;
+	border-radius: 3px;
+    font-family: 'Material Icons';
+    color: rgba(255,255,255,.7);
+    background-color: rgba(255, 255, 255, .1);
+    transition: color.3s ease, background-color .3s ease;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > button {
+        position: static;
+        margin-left: 5px;
+        border-radius: 0;
+        background-color: transparent;
+    }
+}
+
+#nav .menu-container > div > menu li.sub-menu > button:hover,
+#nav .menu-container > div > menu li.sub-menu.open > button {
+	background-color: rgba(255, 255, 255, .3);
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > button:hover {
+        color: rgba(255,255,255,.95);
+    }
+
+    #nav .menu-container > div > menu li.sub-menu.open > button {
+        background-color: transparent;
+    }
+}
+
+#nav .menu-container > div > menu li.sub-menu > ul {
+    display: none;
+    float: left;
+    clear: both;
+    margin: 5px 0 10px 5px;
+    padding: 5px 10px 0;
+    border-left: 1px solid rgba(255,255,255,.3);
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > ul {
+        display: block;
+        position: absolute;
+        top: -9999px;
+        left: 0;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        border: none;
+        opacity: 0;
+        transition: opacity .3s ease, top 0s .3s ease;
+    }
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu:hover > ul {
+        top: 100%;
+        opacity: 1;
+        transition: opacity .3s ease;
+    }
+}
+
+#nav .menu-container > div > menu li.sub-menu > ul > li {
+    float: left;
+    clear: both;
+    font-size: 90%;
+    line-height: 140%;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > ul > li {
+        clear: none;
+        padding: 8px 15px;
+        font-weight: 500;
+    }
+}
+
+#nav .menu-container > div > menu li.sub-menu > ul > li > a {
+    padding: 5px;
+}
+
+@media (min-width: 992px) {
+    #nav .menu-container > div > menu li.sub-menu > ul > li > a {
+        color: #3F51B5;
+    }
+
+    #nav .menu-container > div > menu li.sub-menu > ul > li > a:hover {
+        color: #303F9F;
+    }
+}

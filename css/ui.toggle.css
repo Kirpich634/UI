@@ -1,0 +1,53 @@
+[data-ui~="toggle"] {
+    display: inline-block;
+
+    cursor: pointer;
+}
+
+[data-ui~="toggle"] {
+    display: inline-block;
+    margin: 0 5px;
+    vertical-align: middle;
+}
+
+[data-ui~="toggle"] > div {
+    display: inline-block;
+    width: 45px;
+    height: 30px;
+    margin: 0 10px;
+    border: 2px solid #e3e3e3;
+    border-radius: 15px;
+    vertical-align: middle;
+    background-color: #ffffff;
+    transition: background-color .3s ease, border-color .3s ease;
+}
+
+[data-ui~="toggle"].on > div {
+    border-color: transparent;
+    background-color: #4dd865;
+}
+
+[data-ui~="toggle"] > div > hr {
+    width: 28px;
+    height: 28px;
+    margin: -1px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 1px solid #dfdfdf;
+    box-shadow: 3px 7px 10px 0 rgba(0,0,0,.2);
+    transition: transform .3s ease, border-color .3s ease;
+}
+
+[data-ui~="toggle"].on > div  > hr {
+    transform: translateX(15px);
+    border-color: transparent;
+}
+
+[data-ui~="toggle"] > span {
+    color: #dadada;
+    transition: color .3s ease;
+}
+
+[data-ui~="toggle"].on > span:last-of-type {
+    color: #25d366;
+}

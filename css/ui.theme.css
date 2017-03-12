@@ -1,0 +1,40 @@
+[data-ui~="tabs"] .tablist .tab {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 7px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #222;
+
+    transition: border-color .3s ease, color .3s ease;
+    cursor: pointer;
+}
+
+[data-ui~="tabs"] .tablist .tab {
+    display: inline-block;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding: 7px 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #222;
+
+    transition: border-color .3s ease, color .3s ease;
+    cursor: pointer;
+}
+
+[data-ui~="tabs"] .tablist .tab:hover,
+[data-ui~="tabs"] .tablist .tab.active {
+    border-color: #F9A825;
+}
+
+[data-ui~="tabs"] .tablist .tab.active {
+    color: #F9A825;
+}
+
+[data-ui~="tabs"] .tabpanellist .tabpanel {
+    padding: 15px;
+}

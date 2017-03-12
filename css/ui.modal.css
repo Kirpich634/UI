@@ -1,0 +1,97 @@
+.modal {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+}
+
+.modal > .substrate {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    height: auto;
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+
+.modal > .substrate.dark {
+    background: rgba(0,0,0,.7);
+}
+
+.modal > .substrate.light {
+    background: rgba(255,255,255,.7);
+}
+
+.modal > .substrate.transparent {
+    opacity: 0;
+}
+
+.modal > .window,
+.modal.window {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    min-height: 300px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    background: #fff;
+}
+
+.modal > .window.invisible {
+    visibility: hidden;
+}
+
+.modal > .window.fade {
+    opacity: 0;
+}
+
+.modal > .window.slide-top {
+    transform: translateY(-100px);
+}
+
+.modal > .window.slide-right {
+    transform: translateX(100px);
+}
+
+.modal > .window.slide-bottom {
+    transform: translateY(100px);
+}
+
+.modal > .window.slide-left {
+    transform: translateX(-100px);
+}
+
+.modal > .window.scale-in {
+    transform: scale(.8);
+}
+
+.modal > .window.scale-out {
+    transform: scale(1.2);
+}
+
+.modal > .window.class-animation {
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.modal.transform {
+    position: fixed;
+    width: auto;
+    height: auto;
+    z-index: 10;
+    margin: 0;
+    border: none;
+    opacity: 1;
+    transition: opacity .15s ease, top .4s ease, right .4s ease, bottom .4s ease, left .4s ease, border-radius .4s ease, background-color .4s ease, box-shadow .4s ease;
+}
+
+.modal.transform.transparent {
+    opacity: 0;
+}

@@ -1,0 +1,12 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #EEEEEE;
+    color: #212121;
+    font-size: 14px;
+}
+
+
+#sidebar {
+    height: 100%;
+    background: #FAFAFA;
+}

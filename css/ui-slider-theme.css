@@ -1,0 +1,14 @@
+.ui.slider {
+    width: 200px;
+    height: 20px;
+    margin: 20px;
+    background: #223311;
+}
+
+.ui.slider > .helper {
+    width: 20px;
+    height: 20px;
+
+    margin: -8px ;
+    background: #556633;
+}

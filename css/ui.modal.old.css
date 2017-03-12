@@ -1,0 +1,86 @@
+.modal.substrate {
+    overflow: auto;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: transparent;
+
+    transition: background-color .3s ease;
+
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+}
+
+.modal.substrate.transparent {
+    background-color: transparent !important;
+}
+
+.modal.substrate.dark {
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.modal.substrate.light {
+    background-color: rgba(255, 255, 255, .35);
+}
+
+
+.modal.window {
+    position: relative;
+    z-index: 1;
+    background: #ffffff;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0) translateY(0) scale(1);
+    transition: opacity .3s ease, transform .3s ease;
+}
+
+.modal.window.fade {
+    opacity: 0;
+}
+
+.modal.window.slide-top {
+    transform: translateY(-100px);
+}
+
+.modal.window.slide-right {
+    transform: translateX(100px);
+}
+
+.modal.window.slide-bottom {
+    transform: translateY(100px);
+}
+
+.modal.window.slide-left {
+    transform: translateX(-100px);
+}
+
+.modal.window.scale-in {
+    transform: scale(.8);
+}
+
+.modal.window.scale-out {
+    transform: scale(1.2);
+}
+
+.modal.window.invisible {
+    visibility: hidden;
+}
+
+
+.modal.transform {
+    position: fixed;
+    width: auto;
+    height: auto;
+    z-index: 10;
+    margin: 0;
+    border: none;
+    opacity: 1;
+    transition: opacity .15s ease, top .4s ease, right .4s ease, bottom .4s ease, left .4s ease, border-radius .4s ease, background-color .4s ease, box-shadow .4s ease;
+}
+
+.modal.transform.transparent {
+    opacity: 0;
+}

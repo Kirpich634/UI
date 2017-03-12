@@ -1,0 +1,153 @@
+.resizable {
+    position: relative;
+}
+
+.resizable .resizable-handle {
+    position: absolute;
+}
+
+.resizable .resizable-handle.resizable-handle-n-border {
+    top: -1px;
+    right: -1px;
+    left: -1px;
+    width: auto;
+    height: 5px;
+    border-top: 1px dashed #4c69d3;
+    cursor: ns-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-e-border {
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    width: 5px;
+    height: auto;
+    border-right: 1px dashed #4c69d3;
+    cursor: ew-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-s-border {
+    bottom: -1px;
+    right: -1px;
+    left: -1px;
+    width: auto;
+    height: 5px;
+    border-bottom: 1px dashed #4c69d3;
+    cursor: ns-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-w-border {
+    top: -1px;
+    left: -1px;
+    bottom: -1px;
+    width: 5px;
+    height: auto;
+    border-left: 1px dashed #4c69d3;
+    cursor: ew-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-n {
+    top: -5px;
+    left: 50%;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    border-radius: 5px 5px 0 0;
+    background: #4c69d3;
+    cursor: ns-resize;
+}
+
+
+.resizable .resizable-handle.resizable-handle-ne {
+    top: -5px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 5px solid #4c69d3;
+    border-left-color: transparent;
+    transform: rotate(-45deg);
+    cursor: nesw-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-e {
+    top: 50%;
+    right: -5px;
+    margin-top: -5px;
+    width: 5px;
+    height: 10px;
+    border-radius: 0 5px 5px 0;
+    background: #4c69d3;
+    cursor: ew-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-e {
+    top: 50%;
+    right: -5px;
+    margin-top: -5px;
+    width: 5px;
+    height: 10px;
+    border-radius: 0 5px 5px 0;
+    background: #4c69d3;
+    cursor: ew-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-es {
+    bottom: -5px;
+    right: -5px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 5px solid #4c69d3;
+    border-left-color: transparent;
+    transform: rotate(45deg);
+    cursor: nwse-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-s {
+    bottom: -5px;
+    left: 50%;
+    margin-left: -5px;
+    width: 10px;
+    height: 5px;
+    border-radius: 0 0 5px 5px;
+    background: #4c69d3;
+    cursor: ns-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-sw {
+    bottom: -5px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 5px solid #4c69d3;
+    border-right-color: transparent;
+    transform: rotate(-45deg);
+    cursor: nesw-resize;
+}
+
+
+
+.resizable .resizable-handle.resizable-handle-w {
+    top: 50%;
+    left: -5px;
+    margin-top: -5px;
+    width: 5px;
+    height: 10px;
+    border-radius: 5px 0 0 5px;
+    background: #4c69d3;
+    cursor: ew-resize;
+}
+
+.resizable .resizable-handle.resizable-handle-nw {
+    top: -5px;
+    left: -5px;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    border: 5px solid #4c69d3;
+    border-right-color: transparent;
+    transform: rotate(45deg);
+    cursor: nwse-resize;
+}

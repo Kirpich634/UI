@@ -1,0 +1,122 @@
+[data-ui~="select"] {
+    position: relative;
+    display: inline-block;
+    min-width: 200px;
+    height: 30px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+[data-ui~="select"] .select {
+    overflow: hidden;
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    line-height: 30px;
+}
+
+[data-ui~="select"] .select .option {
+    overflow: hidden;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 0 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    transition: transform .3s ease, opacity .3s ease, visibility .3s ease;
+}
+
+
+[data-ui~="select"] .select .option.hide.top {
+    transform: translateY(20px);
+}
+
+[data-ui~="select"] .select .option.hide.right {
+    transform: translateX(20px);
+}
+
+[data-ui~="select"] .select .option.hide.bottom {
+    transform: translateY(-20px);
+}
+
+[data-ui~="select"] .select .option.hide.left {
+    transform: translateX(-20px);
+}
+
+[data-ui~="select"] .select .option.hide {
+    visibility: hidden;
+    opacity: 0;
+}
+
+[data-ui~="select"] .optionlist {
+    overflow: auto;
+    position: absolute;
+    z-index: 100;
+    min-width: 100%;
+    background: #FFFFFF;
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.27);
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .3s cubic-bezier(.23,1,.32,1), opacity .3s ease, visibility .3s cubic-bezier(.23,1,.32,1);
+}
+
+[data-ui~="select"].open .optionlist {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+[data-ui~="select"] .optionlist.bottom {
+    top: 100%;
+}
+
+[data-ui~="select"] .optionlist.right {
+    left: 0;
+}
+
+[data-ui~="select"] .optionlist.top {
+    bottom: 100%;
+}
+
+[data-ui~="select"] .optionlist.left {
+    right: 0;
+}
+
+[data-ui~="select"] .optionlist .option {
+    display: block;
+    width: 100%;
+
+    padding: 5px 25px 5px 15px;
+    transition: background-color .3s ease, background-color .3s ease;
+}
+
+[data-ui~="select"] .optionlist .option.active {
+    background-color: rgba(0, 0, 0, .2);
+}
+
+
+
+
+[data-ui~="select"] .select::after {
+    content: 'keyboard_arrow_down';
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    right: 5px;
+    width: 18px;
+    height: 18px;
+    margin-top: -9px;
+    color: #ffffff;
+    font-family: 'Material Icons';
+    font-size: 18px;
+    transform: rotate(0deg);
+    transition: transform .3s ease;
+}
+
+[data-ui~="select"].open .select::after {
+    transform: rotate(90deg);
+}

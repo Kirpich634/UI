@@ -1,0 +1,53 @@
+[data-ui~="tabs"] {
+	position: relative;
+}
+
+[data-ui~="tabs"] .tablist {
+	position: relative;
+	z-index: 2;
+}
+
+[data-ui~="tabs"] .tablist.scroll {
+	overflow-x: auto;
+	padding-bottom: 5px;
+	white-space: nowrap;
+	will-change: scroll-position;
+	-webkit-overflow-scrolling: touch;
+	overflow-scrolling: touch;
+}
+
+
+[data-ui~="tabs"] .tabpanellist {
+	position: relative;
+	z-index: 1;
+	height: auto;
+}
+
+[data-ui~="tabs"] .tabpanellist .tabpanellist {
+	overflow-y: hidden;
+}
+
+[data-ui~="tabs"] .tabpanellist.smooth-height-transition {
+	transition: height .3s ease;
+}
+
+[data-ui~="tabs"] .tabpanellist .tabpanel {
+	position: absolute;
+	z-index: 0;
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	margin: 0;
+	opacity: 0;
+	transition: opacity .3s ease;
+}
+
+[data-ui~="tabs"] .tabpanellist .tabpanel.delay-fading.old {
+	transition: opacity .1s .3s ease;
+}
+
+[data-ui~="tabs"] .tabpanellist .tabpanel.active {
+	position: relative;
+	z-index: 1;
+	opacity: 1;
+}

@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>jQuery select</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="/css/normalize.css" rel="stylesheet">
+    <link href="/css/grid.css" rel="stylesheet">
+    <link href="/css/offsets.css" rel="stylesheet">
+    <link href="/css/rearranging.css" rel="stylesheet">
+    <link href="/css/helpers.css" rel="stylesheet">
+    <link href="/css/ui.css" rel="stylesheet">
+
+    <link href="/css/ui.modal.css" rel="stylesheet">
+    <link href="/css/ui.notice.css" rel="stylesheet">
+    <link href="/css/ui.toggle.css" rel="stylesheet">
+    <link href="/css/ui.textfield.css" rel="stylesheet">
+    <link href="/css/ui.spinner.css" rel="stylesheet">
+    <link href="/css/ui.dropdown.css" rel="stylesheet">
+    <link href="/css/ui.select.css" rel="stylesheet">
+    <link href="/css/ui.tabs.css" rel="stylesheet">
+    <link href="/css/ui.reveal.css" rel="stylesheet">
+    <link href="/css/ui.impulse.css" rel="stylesheet">
+    <link href="/css/ui-resizable.css" rel="stylesheet">
+
+    <link href="/css/main-menu.css" rel="stylesheet">
+
+    <link href="/css/ui.theme.css" rel="stylesheet">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+
+
+    <script src="/dist/common.js" defer></script>
+    <script src="/dist/nav.js" defer></script>
+    <script src="/dist/test.js" defer></script>
+</head>
+
+<body class="main">
+
+    <nav id="nav" data-ui="sticky" hidden>
+        <button class="menu-trigger hidden-lg-up">
+            <hr>
+            <hr>
+            <hr>
+        </button>
+        <div class="sticky">
+            <div class="container">
+
+                <a class="logo">logo</a>
+
+                <section class="menu-container hidden-md-down">
+                    <div>
+                        <menu>
+                            <li class="active"><a href="#">main</a></li>
+                            <li><a href="#">Thin</a></li>
+                            <li class="sub-menu">
+                                <a href="#">test 2</a>
+                                <button>keyboard_arrow_down</button>
+                                <ul>
+                                    <li><a href="#">test 2 1</a></li>
+                                    <li><a href="#">test 2 2</a></li>
+                                    <li><a href="#">test 2 3</a></li>
+                                    <li><a href="#">test 2 4</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">test 3</a></li>
+                            <li><a href="#">test 4</a></li>
+                            <li><a href="#">test 5</a></li>
+                        </menu>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </nav>
+
+    <main class="container-fluid row">
+        <aside id="sidebar" class="col md-3 xl-2 raised" data-ui="sticky">
+
+            <a href="" class="logo">
+                <img src="">
+            </a>
+            ghfgh
+            <nav>
+                <button class="menu-trigger hidden-md-up"></button>
+                <menu>
+                    <a></a>
+                    <a></a>
+                    <a></a>
+                    <li>
+                        <span></span>
+                        <ul>
+
+                        </ul>
+                    </li>
+                </menu>
+            </nav>
+        </aside>
+
+        <section id="" class="col md-9 xl-10 pull-right" style="padding-top: 70px;">
+
+            <section class="preview">
+
+                <div id="resizable"></div>
+
+            </section>
+
+            <section id="test-1" class="clas-test-1 gust" style="width: 50px;" data-ui="test" data-govno="name"
+                     onclick="var b = 12">
+
+                <div id="test-2">
+                    <div id="test-3" style="width: 50px;height: 50px;background: red;">
+
+                    </div>
+                </div>
+
+            </section>
+
+            <section>
+                <h1 class="uppercase">
+                    <div id="t1" class="reveal-text" style="display: inline-block;" data-ui="reveal">тестовый
+                        заголовок
+                    </div>
+                </h1>
+
+                <div id="t2" style="display: inline-block;" data-ui="reveal" data-reveal-contenthidden="false"
+                     data-reveal-in-revealer-in-fade="false" data-reveal-in-revealer-in-scale="false"
+                     data-reveal-in-revealer-out-fade="false" data-reveal-in-revealer-out-scale="false">
+                    <img class="fluid" src="/img/benjamin-child-17946.jpg" alt="">
+                </div>
+
+            </section>
+
+            <section class="preview modal-preview">
+
+                <h1 class="font-light uppercase">modal</h1>
+                <hr class="separator">
+
+                <button class="green rounded uppercase" data-ui="modal" data-modal-content="#modal1">Открыть
+                    модальное
+                    окно
+                </button>
+
+                <div id="modal1">Модальное окно</div>
+
+            </section>
+
+            <section class="preview tabs" data-ui="tabs">
+
+                <h1 class="font-light uppercase">Tabs</h1>
+                <hr class="separator">
+
+                <header class="wrapper">
+                    <nav class="col xs-12 lg-6 mb-xs-15 mb-lg-30 text-center">
+                        <menu class="nowrap tablist" role="tablist">
+                            <li class="tab uppercase active" role="tab">вкладка 1</li>
+                            <li class="tab uppercase" role="tab">вкладка 2</li>
+                            <li class="tab uppercase" role="tab">вкладка 3</li>
+                            <li class="tab uppercase" role="tab">вкладка 4</li>
+                        </menu>
+                    </nav>
+                    <nav class="col xs-12 lg-6 mb-xs-30 text-center">
+                        <menu class="nowrap tablist" role="tablist">
+                            <li class="tab uppercase active" role="tab">вкладка 1</li>
+                            <li class="tab uppercase" role="tab">вкладка 2</li>
+                            <li class="tab uppercase" role="tab">вкладка 3</li>
+                            <li class="tab uppercase" role="tab">вкладка 4</li>
+                        </menu>
+                    </nav>
+                </header>
+
+                <section class="wrapper">
+
+                    <article class="col md-6 lg-4">
+                        <div class="tabpanellist bg-extra-light-gray raised rounded">
+                            <article class="tabpanel active" role="tabpanel">
+                                <h3>Вкладки с задержкой</h3>
+                                <p>Предотвращает мерцание вкладки в момент переключения</p>
+                                <p class="mb-xs-30">Советую применять с элементами одинаковой константной
+                                    высотой</p>
+                                <h6 class="font-medium">Пример:</h6>
+                                <hr class="separator mb-xs-15">
+                                <div data-ui="tabs">
+                                    <menu class="tablist mb-xs-15" role="tablist">
+                                        <button class="tab active" role="tab" data-tabpanel="tab1">подвкладка 1
+                                        </button>
+                                        <button class="tab" role="tab" data-tabpanel="tab2">подвкладка 2</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab3">подвкладка 3</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab4">подвкладка 4</button>
+                                    </menu>
+
+                                    <div class="tabpanellist">
+                                        <form class="tabpanel delay-fading bg-light-gray" role="tabpanel"
+                                              name="tab3">
+                                            content 3
+                                        </form>
+                                        <article class="tabpanel delay-fading bg-light-gray active" role="tabpanel"
+                                                 data-name="tab1">content 1
+                                        </article>
+                                        <article class="tabpanel bg-light-gray" role="tabpanel" data-name="tab2">
+                                            content 2
+                                        </article>
+                                        <article class="tabpanel delay-fading bg-light-gray" role="tabpanel"
+                                                 data-name="tab4">content 4
+                                        </article>
+                                    </div>
+
+                                </div>
+                            </article>
+                            <article class="tabpanel" role="tabpanel">content 2</article>
+                            <article class="tabpanel" role="tabpanel">content 3</article>
+                            <article class="tabpanel" role="tabpanel">content 4</article>
+                        </div>
+                    </article>
+
+                    <article class="col sx-12 md-6 lg-4">
+                        <div class="tabpanellist bg-extra-light-gray raised rounded">
+                            <article class="tabpanel active" role="tabpanel">
+
+                                <div data-ui="tabs">
+                                    <menu class="tablist mb-xs-15" role="tablist">
+                                        <button class="tab active" role="tab" data-tabpanel="tab1">подвкладка 1
+                                        </button>
+                                        <button class="tab" role="tab" data-tabpanel="tab2">подвкладка 2</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab3">подвкладка 3</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab4">подвкладка 4</button>
+                                    </menu>
+
+                                    <div class="tabpanellist">
+                                        <form class="tabpanel" role="tabpanel" name="tab3">content 3</form>
+                                        <article class="tabpanel active" role="tabpanel" data-name="tab1">content 1
+                                        </article>
+                                        <article class="tabpanel" role="tabpanel" data-name="tab2" data-ui="tabs">
+
+                                            <menu class="tablist mb-xs-15" role="tablist">
+                                                <button class="tab active" role="tab" data-tabpanel="tab1">
+                                                    подвкладка 1
+                                                </button>
+                                                <button class="tab" role="tab" data-tabpanel="tab2">подвкладка 2
+                                                </button>
+                                                <button class="tab" role="tab" data-tabpanel="tab3">подвкладка 3
+                                                </button>
+                                                <button class="tab" role="tab" data-tabpanel="tab4">подвкладка 4
+                                                </button>
+                                            </menu>
+
+                                            <div class="tabpanellist">
+                                                <form class="tabpanel" role="tabpanel" name="tab3">content 3</form>
+                                                <article class="tabpanel active" role="tabpanel" data-name="tab1">
+                                                    content
+                                                    1
+                                                </article>
+                                                <article class="tabpanel" role="tabpanel" data-name="tab2">
+                                                    content 2<br>
+                                                    content 2<br>
+                                                    content 2<br>
+                                                    content 2<br>
+                                                    content 2
+                                                </article>
+                                                <article class="tabpanel" role="tabpanel" data-name="tab4">content 4
+                                                </article>
+                                            </div>
+
+
+                                        </article>
+                                        <article class="tabpanel" role="tabpanel" data-name="tab4">content 4
+                                        </article>
+                                    </div>
+
+                                </div>
+
+                            </article>
+                            <article class="tabpanel" role="tabpanel">content 2</article>
+                            <article class="tabpanel" role="tabpanel">content 3</article>
+                            <article class="tabpanel" role="tabpanel">content 4</article>
+                        </div>
+                    </article>
+
+                    <article class="col sx-12 lg-4">
+                        <div class="tabpanellist bg-extra-light-gray raised rounded">
+                            <article class="tabpanel active" role="tabpanel">
+
+                                <div data-ui="tabs">
+                                    <menu class="tablist mb-xs-15" role="tablist">
+                                        <button class="tab active" role="tab" data-tabpanel="tab1">подвкладка 1
+                                        </button>
+                                        <button class="tab" role="tab" data-tabpanel="tab2">подвкладка 2</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab3">подвкладка 3</button>
+                                        <button class="tab" role="tab" data-tabpanel="tab4">подвкладка 4</button>
+                                    </menu>
+
+                                    <div class="tabpanellist">
+                                        <form class="tabpanel" role="tabpanel" name="tab3">content 3</form>
+                                        <article class="tabpanel active" role="tabpanel" data-name="tab1">content 1
+                                        </article>
+                                        <article class="tabpanel" role="tabpanel" data-name="tab2">
+                                            content 2<br>
+                                            content 2<br>
+                                            content 2<br>
+                                            content 2<br>
+                                            content 2
+                                        </article>
+                                        <article class="tabpanel" role="tabpanel" data-name="tab4">content 4
+                                        </article>
+                                    </div>
+
+                                </div>
+
+                            </article>
+                            <article class="tabpanel" role="tabpanel">content 2</article>
+                            <article class="tabpanel" role="tabpanel">content 3</article>
+                            <article class="tabpanel" role="tabpanel">content 4</article>
+                        </div>
+                    </article>
+
+                </section>
+
+
+            </section>
+
+            <section class="preview dropdown">
+
+                <h1 class="font-light uppercase">Dropdown</h1>
+                <hr class="separator">
+
+
+                <div class="" data-ui="dropdown">
+                    <div class="trigger">click me</div>
+                    <div class="window">24234</div>
+                </div>
+            </section>
+
+            <section class="preview form-elements mb-xs-70">
+                <h1 class="font-light uppercase">Элементы форм</h1>
+                <hr class="separator mb-xs-70">
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Input</h2>
+
+                    <div data-ui="textfield">
+                        <p>Введите текст</p>
+                        <input name="" type="text">
+                    </div>
+
+                </article>
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Textarea</h2>
+
+                    <div data-ui="textfield">
+                        <p>Введите текст</p>
+                        <div contenteditable="true"></div>
+                        <input name="" type="hidden">
+                    </div>
+
+                </article>
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Select</h2>
+
+                    <div data-ui="select">
+                        <header class="select">
+                            <div class="option">Item 1</div>
+                        </header>
+                        <menu class="optionlist rounded">
+                            <li class="option disabled">Формат</li>
+                            <li class="option" data-value=" 10x10"> 10x10</li>
+                            <li class="option" data-value=" 33x33 cm"> 33x33 cm</li>
+                            <li class="option" data-value=" 7x59,7"> 7x59,7</li>
+                            <li class="option" data-value=" 7x7 cm"> 7x7 cm</li>
+                            <li class="option" data-value="00 1x60 см">00 1x60 см</li>
+                            <li class="option" data-value="05X10cm">05X10cm</li>
+                            <li class="option" data-value="05X30cm">05X30cm</li>
+                            <li class="option" data-value="07x07cm">07x07cm</li>
+                            <li class="option" data-value="07x29,7cm">07x29,7cm</li>
+                            <li class="option" data-value="07x44,7cm">07x44,7cm</li>
+                            <li class="option" data-value="07x59,7 cm">07x59,7 cm</li>
+                            <li class="option" data-value="1,5X59,7cm">1,5X59,7cm</li>
+                            <li class="option" data-value="1,5x59,7cm">1,5x59,7cm</li>
+                            <li class="option" data-value="10x10 см">10x10 см</li>
+                            <li class="option" data-value="10x29,7 cm">10x29,7 cm</li>
+                            <li class="option" data-value="10x59,7 см">10x59,7 см</li>
+                            <li class="option" data-value="10x6,3">10x6,3</li>
+                            <li class="option" data-value="119,7x119,7 cm">119,7x119,7 cm</li>
+                            <li class="option" data-value="119.7x29.7cm">119.7x29.7cm</li>
+                            <li class="option" data-value="13x13 cm">13x13 cm</li>
+                            <li class="option" data-value="14,7X39,7 cm">14,7X39,7 cm</li>
+                            <li class="option" data-value="14.7x59.7cm">14.7x59.7cm</li>
+                            <li class="option" data-value="15x29,7 cm">15x29,7 cm</li>
+                            <li class="option" data-value="15x40">15x40</li>
+                            <li class="option" data-value="2,0x59,7 cm">2,0x59,7 cm</li>
+                            <li class="option" data-value="29,7x29,7 ">29,7x29,7</li>
+                            <li class="option" data-value="29,7x29,7 см">29,7x29,7 см</li>
+                            <li class="option" data-value="29,7x39,7cm">29,7x39,7cm</li>
+                            <li class="option" data-value="29.7x59.7cm">29.7x59.7cm</li>
+                            <li class="option" data-value="3,5x29,7 cm">3,5x29,7 cm</li>
+                            <li class="option" data-value="30x30 cm">30x30 cm</li>
+                            <li class="option" data-value="30x30cm">30x30cm</li>
+                            <li class="option" data-value="30x60 cm">30x60 cm</li>
+                            <li class="option" data-value="32,7x32,7">32,7x32,7</li>
+                            <li class="option" data-value="32,7x32,7 cm">32,7x32,7 cm</li>
+                            <li class="option" data-value="39.7x39.7 cm">39.7x39.7 cm</li>
+                            <li class="option" data-value="39.7x39.7cm">39.7x39.7cm</li>
+                            <li class="option" data-value="40x40 cm">40x40 cm</li>
+                            <li class="option" data-value="44.7x44.7cm">44.7x44.7cm</li>
+                            <li class="option" data-value="44x86 cm">44x86 cm</li>
+                            <li class="option" data-value="45x45cm">45x45cm</li>
+                            <li class="option" data-value="59.7x119.7cm">59.7x119.7cm</li>
+                            <li class="option" data-value="59.7x59.7cm">59.7x59.7cm</li>
+                            <li class="option" data-value="5X30cm">5X30cm</li>
+                            <li class="option" data-value="5x29,7 cm">5x29,7 cm</li>
+                            <li class="option" data-value="6,5x29,7 cm">6,5x29,7 cm</li>
+                            <li class="option" data-value="60x60cm">60x60cm</li>
+                            <li class="option" data-value="6х29,7 cm">6х29,7 cm</li>
+                            <li class="option" data-value="6х39,7 cm">6х39,7 cm</li>
+                            <li class="option" data-value="6х59,7 cm">6х59,7 cm</li>
+                            <li class="option" data-value="6х6 cm">6х6 cm</li>
+                            <li class="option" data-value="80х80, 120х120 cm">80х80, 120х120 cm</li>
+                            <li class="option" data-value="89,7x89,7cm">89,7x89,7cm</li>
+                            <li class="option" data-value="8x29,7cm">8x29,7cm</li>
+                            <li class="option" data-value="8x30 cm">8x30 cm</li>
+                        </menu>
+                        <input name="" type="hidden" required>
+                    </div>
+
+                </article>
+
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Toggle</h2>
+
+                    <div class="off" data-ui="toggle">
+                        <span>Выкл</span>
+                        <div>
+                            <hr>
+                        </div>
+                        <span>Вкл</span>
+                        <input name="" type="hidden" required>
+                    </div>
+
+                </article>
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Spinner</h2>
+
+                    <div data-ui="spinner">
+                        <button class="spinup" data-ui="impulse">+</button>
+                        <input type="text" name="count" value="0">
+                        <button class="spindown" data-ui="impulse">-</button>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="preview buttons mb-xs-70">
+                <h1 class="font-light uppercase">Кнопки</h1>
+                <hr class="separator mb-xs-70">
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Обычные</h2>
+
+                    <button data-ui="impulse">Кнопка 1</button>
+                    <button class="flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h4 class="font-light uppercase">С закруглением</h4>
+
+                    <button class="rounded" data-ui="impulse">Кнопка 1</button>
+                    <button class="rounded flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="rounded raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h3 class="font-light uppercase">Красные</h3>
+
+                    <button class="red" data-ui="impulse">Кнопка 1</button>
+                    <button class="red flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="red raised" data-ui="impulse">Кнопка 1</button>
+                    <h4 class="font-light uppercase">С закруглением</h4>
+
+                    <button class="red rounded" data-ui="impulse">Кнопка 1</button>
+                    <button class="red rounded flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="red rounded raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h3 class="font-light uppercase">Зелёные</h3>
+
+                    <button class="green" data-ui="impulse">Кнопка 1</button>
+                    <button class="green flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="green raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h4 class="font-light uppercase">С закруглением</h4>
+
+                    <button class="green rounded" data-ui="impulse">Кнопка 1</button>
+                    <button class="green rounded flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="green rounded raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h3 class="font-light uppercase">Голубые</h3>
+
+                    <button class="blue" data-ui="impulse">Кнопка 1</button>
+                    <button class="blue flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="blue raised" data-ui="impulse">Кнопка 1</button>
+
+                    <h4 class="font-light uppercase">С закруглением</h4>
+
+                    <button class="blue rounded" data-ui="impulse">Кнопка 1</button>
+                    <button class="blue rounded flat" data-ui="impulse">Кнопка 1</button>
+                    <button class="blue rounded raised" data-ui="impulse">Кнопка 1</button>
+
+                </article>
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Flat</h2>
+
+                    <button class="flat" data-ui="impulse">Кнопка 1</button>
+
+                </article>
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Raised</h2>
+
+                    <button class="raised" data-ui="impulse">Кнопка 1</button>
+
+                </article>
+
+            </section>
+
+            <section class="preview buttons mb-xs-70">
+                <h1 class="font-light uppercase">Модальное окно</h1>
+                <hr class="separator mb-xs-70">
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Обычные</h2>
+
+                    <button class="modal-button blue rounded raised">Modal Open</button>
+                    <button class="modal-button blue rounded raised">Modal Open</button>
+                    <button class="modal-button blue rounded raised">Modal Open</button>
+                    <button class="modal-button blue rounded raised">Modal Open</button>
+
+                </article>
+
+            </section>
+
+            <section class="preview buttons mb-xs-70">
+                <h1 class="font-light uppercase">Уведомления</h1>
+                <hr class="separator mb-xs-70">
+
+                <article class="mb-lg-40">
+                    <h2 class="font-light uppercase">Обычные</h2>
+
+                    <button class="raised rounded green" onClick="notice('Title description','description');"><i
+                            class="material-icons">announcement</i> Press ME
+                    </button>
+
+                </article>
+
+            </section>
+        </section>
+    </main>
+
+
+    <div id="notifications"></div>
+
+    <script src="/dist/jquery-3.1.1.min.js"></script>
+
+    <script src="/dist/library.js"></script>
+    <script src="/dist/virtualDOM.js"></script>
+
+    <script src="/dist/ui.js"></script>
+    <script src="/dist/ui.notice.js"></script>
+    <script src="/dist/ui.modal.js"></script>
+    <script src="/dist/ui.impulse.js"></script>
+    <script src="/dist/ui.tabs.js"></script>
+    <script src="/dist/scrollMonitor.js"></script>
+    <script src="/dist/ui.reveal.js"></script>
+    <script src="/dist/ui.toggle.js"></script>
+    <script src="/dist/ui.textfield.js"></script>
+    <script src="/dist/ui.spinner.js"></script>
+    <script src="/dist/ui.dropdown.js"></script>
+    <script src="/dist/ui.select.js"></script>
+    <script src="/dist/ui-resizable.js"></script>
+    <script src="/dist/ui.extras.js"></script>
+
+</body>
+</html>
+
+

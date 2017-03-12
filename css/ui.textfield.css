@@ -1,0 +1,85 @@
+[data-ui~="textfield"] {
+    display: inline-block;
+    position: relative;
+}
+
+[data-ui~="textfield"] > p {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    margin: 0;
+}
+
+[data-ui~="textfield"] > p.hidden {
+    display: block;
+}
+
+[data-ui~="textfield"] > input:not([type="hidden"]),
+[data-ui~="textfield"] > div[contenteditable="true"] {
+    display: block;
+    position: relative;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+
+
+[data-ui~="textfield"] {
+    min-width: 200px;
+    border-bottom: 2px solid #999;
+}
+
+[data-ui~="textfield"] > p,
+[data-ui~="textfield"] > div[contenteditable="true"] {
+    padding: 5px 0;
+}
+
+[data-ui~="textfield"] > p {
+    font-size: 16px;
+    line-height: 20px;
+    color: #777;
+    transform: translateY(0px);
+    transition: transform .2s ease, font-size .2s ease;
+}
+
+[data-ui~="textfield"] > p.hidden {
+    transform: translateY(-20px);
+    font-size: 12px;
+}
+
+[data-ui~="textfield"] > input:not([type="hidden"]),
+[data-ui~="textfield"] > div[contenteditable="true"] {
+    min-height: 30px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+[data-ui~="textfield"] > div[contenteditable="true"] {
+    min-height: 30px;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+[data-ui~="textfield"] > hr.underline {
+    display: block;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    margin: 0;
+    background-color: purple;
+    transition: width .3s ease, left .3s ease, opacity .3s ease;
+}
+
+[data-ui~="textfield"].error > hr.underline {
+    background-color: #F44336;
+}
+
+[data-ui~="textfield"].success > hr.underline {
+    background-color: #4CAF50;
+}
