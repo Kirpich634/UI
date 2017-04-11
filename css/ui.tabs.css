@@ -16,7 +16,6 @@
 	overflow-scrolling: touch;
 }
 
-
 [data-ui~="tabs"] .tabpanellist {
 	position: relative;
 	z-index: 1;

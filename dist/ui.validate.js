@@ -1,56 +1,48 @@
 "use strict";
 
-ui.validate = function (w, d) {
+(function (w, d) {
     var rules = {
         empty: function empty(value) {
             return value != "" && value != undefined && value != null;
         },
-
         min: function min(value, limit) {
             return is.string(value) ? value.length >= limit : value >= limit;
         },
-
         max: function max(value, limit) {
             return is.string(value) ? value.length <= limit : value <= limit;
         },
-
         email: function email(value) {
             return (/^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/gi.test(value)
             );
         },
-
         phone: function phone(value) {
             return (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/.test(value)
             );
         },
-
         regex: function regex(value, _regex) {
             return _regex.test(value);
         },
-
         equals: function equals(value, value2) {
             return value == value2;
         },
-
         custom: function custom(value, rule) {
             return rule(value);
         }
     };
 
-    return function () {
-
-        var generalValidate;
+    var validate = w.formvalidate = function () {
+        var generalValidate = void 0;
 
         var form = arguments[0];
 
         var update = is.function(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : false;
-        var node;
+        var node = void 0;
 
         for (var i = 1; i < (update ? arguments.length - 1 : arguments.length); i++) {
 
             if (node = form.elements[arguments[i].name]) {
-                var validation;
-                var rule;
+                var validation = void 0;
+                var rule = void 0;
 
                 for (rule in rules) {
                     if (arguments[i][rule]) {
@@ -75,4 +67,20 @@ ui.validate = function (w, d) {
 
         return generalValidate;
     };
-}(window, document);
+
+    $.fn.validate = function () {
+        var _arguments = arguments;
+
+        var v = true;
+
+        this.each(function (i, el) {
+            var a = Array.prototype.slice.call(_arguments);
+
+            Array.prototype.unshift.call(a, el);
+
+            if (!validate.apply(null, a)) v = false;
+        });
+
+        return v;
+    };
+})(window, document);

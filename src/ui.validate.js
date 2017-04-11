@@ -1,54 +1,30 @@
 "use strict";
 
-ui.validate = (function (w, d) {
-    var rules = {
-        empty: function (value) {
-            return value != "" && value != undefined && value != null;
-        },
-
-        min: function(value, limit) {
-            return is.string(value) ? value.length >= limit : value >= limit;
-        },
-
-        max: function(value, limit) {
-            return is.string(value) ? value.length <= limit : value <= limit;
-        },
-
-        email: function (value) {
-            return (/^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/gi).test(value);
-        },
-
-        phone: function (value) {
-            return (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/).test(value);
-        },
-
-        regex: function (value, regex) {
-            return (regex).test(value);
-        },
-
-        equals: function (value, value2) {
-            return value == value2;
-        },
-
-        custom: function (value, rule) {
-            return rule(value);
-        }
+(function (w, d) {
+    let rules = {
+        empty: (value) => value != "" && value != undefined && value != null,
+        min: (value, limit) => is.string(value) ? value.length >= limit : value >= limit,
+        max: (value, limit) => is.string(value) ? value.length <= limit : value <= limit,
+        email: (value) => (/^(([a-zA-Z]|[0-9])|([-]|[_]|[.]))+[@](([a-zA-Z0-9])|([-])){2,63}[.](([a-zA-Z0-9]){2,63})+$/gi).test(value),
+        phone: (value) => (/^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/).test(value),
+        regex: (value, regex) => (regex).test(value),
+        equals: (value, value2) => value == value2,
+        custom: (value, rule) => rule(value)
     };
 
-    return function () {
+    let validate = w.formvalidate = function() {
+        let generalValidate;
 
-        var generalValidate;
+        let form = arguments[0];
 
-        var form = arguments[0];
+        let update = is.function(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : false;
+        let node;
 
-        var update = is.function(arguments[arguments.length - 1]) ? arguments[arguments.length - 1] : false;
-        var node;
-
-        for (var i = 1; i < (update ? arguments.length - 1 : arguments.length); i++) {
+        for (let i = 1; i < (update ? arguments.length - 1 : arguments.length); i++) {
 
             if (node = form.elements[arguments[i].name]) {
-                var validation;
-                var rule;
+                let validation;
+                let rule;
 
                 for (rule in rules) {
                     if (arguments[i][rule]) {
@@ -58,7 +34,6 @@ ui.validate = (function (w, d) {
                         else {
                             validation = rules[rule](node.value);
                         }
-
 
                         if (validation) {
                             if (i == 1) generalValidate = true;
@@ -78,5 +53,22 @@ ui.validate = (function (w, d) {
         }
 
         return generalValidate;
+    };
+
+    $.fn.validate = function() {
+        let _arguments = arguments;
+
+        let v = true;
+
+        this.each(function(i, el) {
+            let a = Array.prototype.slice.call(_arguments);
+
+            Array.prototype.unshift.call(a, el);
+
+            if (!validate.apply(null, a))
+                v = false;
+        });
+
+        return v;
     }
 })(window, document);
