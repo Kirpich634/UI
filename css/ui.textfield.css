@@ -1,5 +1,5 @@
 [data-ui~="textfield"] {
-    display: inline-block;
+    display: block;
     position: relative;
 }
 

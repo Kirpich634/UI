@@ -10,19 +10,19 @@
   clear: both;
 }
 
-.text-left-xs {
+.text-left {
   text-align: left;
 }
 
-.text-right-xs {
+.text-right {
   text-align: right;
 }
 
-.text-center-xs {
+.text-center {
   text-align: center;
 }
 
-.text-justify-xs {
+.text-justify {
   text-align: justify;
 }
 

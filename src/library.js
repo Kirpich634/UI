@@ -77,7 +77,7 @@
 
 
 
-    is.plainObject
+
 
 
 

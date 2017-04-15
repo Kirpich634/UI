@@ -34,15 +34,15 @@
     }
 }
 
-.row {
+.wrap {
     display: flex;
     flex-wrap: wrap;
     margin-left: -15px;
     margin-right: -15px;
 }
 
-.container.row,
-.container-fluid.row {
+.container.wrap,
+.container-fluid.wrap {
     margin-left: auto;
     margin-right: auto;
     padding-left: 0;
