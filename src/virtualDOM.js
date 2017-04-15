@@ -1,3 +1,6 @@
+
+
+
 ((w, d) => {
     class App {
         static n(type, props, children) {
@@ -195,118 +198,6 @@
         }
     }
 
-
-
-    function on( elem, types, selector, data, fn, one ) {
-        var origFn, type;
-
-        // Types can be a map of types/handlers
-        if ( typeof types === "object" ) {
-
-            // ( types-Object, selector, data )
-            if ( typeof selector !== "string" ) {
-
-                // ( types-Object, data )
-                data = data || selector;
-                selector = undefined;
-            }
-            for ( type in types ) {
-                on( elem, type, selector, data, types[ type ], one );
-            }
-            return elem;
-        }
-
-        if ( data == null && fn == null ) {
-
-            // ( types, fn )
-            fn = selector;
-            data = selector = undefined;
-        } else if ( fn == null ) {
-            if ( typeof selector === "string" ) {
-
-                // ( types, selector, fn )
-                fn = data;
-                data = undefined;
-            } else {
-
-                // ( types, data, fn )
-                fn = data;
-                data = selector;
-                selector = undefined;
-            }
-        }
-        if ( fn === false ) {
-            fn = returnFalse;
-        } else if ( !fn ) {
-            return elem;
-        }
-
-        if ( one === 1 ) {
-            origFn = fn;
-            fn = function( event ) {
-
-                // Can use an empty set, since event contains the info
-                jQuery().off( event );
-                return origFn.apply( this, arguments );
-            };
-
-            // Use same guid so caller can remove using origFn
-            fn.guid = origFn.guid || ( origFn.guid = jQuery.guid++ );
-        }
-
-        return elem.each( function() {
-            jQuery.event.add( this, types, fn, data, selector );
-        } );
-    }
-
-    let jq = {
-        on: function (types, selector, data, fn) {
-            return on(this, types, selector, data, fn);
-        },
-
-        one: function (types, selector, data, fn) {
-            return on(this, types, selector, data, fn, 1);
-        },
-
-        off: function (types, selector, fn) {
-            var handleObj, type;
-            if (types && types.preventDefault && types.handleObj) {
-
-                // ( event )  dispatched jQuery.Event
-                handleObj = types.handleObj;
-                jQuery(types.delegateTarget).off(
-                    handleObj.namespace ?
-                        handleObj.origType + "." + handleObj.namespace :
-                        handleObj.origType,
-                    handleObj.selector,
-                    handleObj.handler
-                );
-                return this;
-            }
-            if (typeof types === "object") {
-
-                // ( types-object [, selector] )
-                for (type in types) {
-                    this.off(type, selector, types[type]);
-                }
-                return this;
-            }
-            if (selector === false || typeof selector === "function") {
-
-                // ( types [, fn] )
-                fn = selector;
-                selector = undefined;
-            }
-            if (fn === false) {
-                fn = returnFalse;
-            }
-            return this.each(function () {
-                jQuery.event.remove(this, types, fn, selector);
-            });
-        }
-    };
-
-
     let elementsData = {
         custom: new WeakMap(),
         eventsCallbacksPhaseTrue: {
@@ -327,15 +218,99 @@
         },
     };
 
+    Array.prototype.unique = function() {
+        var a = [];
+        for (var i=0, l=this.length; i<l; i++)
+            if (a.indexOf(this[i]) === -1)
+                a.push(this[i]);
+        return a;
+    };
+
+
+    let render = function (nodeMask, virtualNode) {
+
+        let differentNew = new WeakMap();
+        let differentOld = new WeakMap();
+
+        let difference = function (nodeMask, virtualNode) {
+            let maxLength = Math.max(nodeMask.children.length, virtualNode.children.length);
+
+            for (let i = 0; i < maxLength; i++) {
+                if (virtualNode.children[i]) {
+                    if (virtualNode.children[i].node = nodeMask.children[i].node) {
+
+                    } else {
+                        if (differentOld.has(virtualNode.children[i].node)) {
+                            let mask = differentOld[virtualNode.children[i].node];
+
+                            if (mask.type !== virtualNode.children[i].type)
+                                virtualNode.children[i].node.tagName = virtualNode.children[i].type;
+
+                            let keys = Object.keys(virtualNode.children[i].props).concat(Object.keys(mask.props)).unique();
+
+                            for (let key of keys) {
+                                if (virtualNode.children[i].props[key]) {
+                                    if (virtualNode.children[i].props[key] !== mask.props[key])
+                                        virtualNode.children[i].node.setAttribute(key, virtualNode.children[i].props);
+                                } else {
+                                    virtualNode.children[i].node.removeAttribute(key);
+                                }
+                            }
+
+
+                            
+
+                            differentOld.delete(virtualNode.children[i].node);
+                        } else {
+                            differentNew.set(virtualNode.children[i].node, virtualNode.children[i]);
+                        }
+
+                        if (differentNew.has(nodeMask.children[i].node)) {
+
+
+                            let mask = differentNew[nodeMask.children[i].node];
+
+                            if (mask.type !== virtualNode.children[i].type)
+                                virtualNode.children[i].node.tagName = virtualNode.children[i].type;
+
+                            let keys = Object.keys(virtualNode.children[i].props).concat(Object.keys(mask.props)).unique();
+
+                            for (let key of keys) {
+                                if (virtualNode.children[i].props[key]) {
+                                    if (virtualNode.children[i].props[key] !== mask.props[key])
+                                        virtualNode.children[i].node.setAttribute(key, virtualNode.children[i].props);
+                                } else {
+                                    virtualNode.children[i].node.removeAttribute(key);
+                                }
+                            }
+
+                            differentOld.delete(virtualNode.children[i].node);
+
+
+                        } else {
+                            differentOld.set(nodeMask.node, nodeMask);
+                        }
+                    }
+                } else {
+                    nodeMask.children[i].node.parentNode.removeChild(nodeMask.children[i].node);
+                }
+            }
+        };
+
+        difference(nodeMask, virtualNode);
+
+    };
 
     class virtualNodeElement {
         constructor (node) {
             this.node = node;
             this.type = node.nodeName;
+            this.classList = [];
+            this.style = {};
             this.props = {
                 id: '',
-                classList: [],
-                style: {}
+                class: '',
+                style: '',
             };
             this.children = [];
 
@@ -407,12 +382,12 @@
                     phase = argument;
             }
 
-            let eventCallbacks = phase ? elementsData.eventsCallbacksPhaseTrue.get(this.nodes) : elementsData.eventsCallbacksPhaseFalse.get(this.nodes);
+            let eventCallbacks = phase ? elementsData.eventsCallbacksPhaseTrue : elementsData.eventsCallbacksPhaseFalse;
 
             eventCallbacks = selector ? eventCallbacks.sheathed : eventCallbacks.stock;
 
             if (!eventCallbacks[event])
-                !eventCallbacks[event]
+                //eventCallbacks[event] = new;
 
             if (eventCallbacks)
 
@@ -513,7 +488,6 @@
 
         }
 
-
         style() {
             if (arguments.length == 2)
                 this.props.style[arguments[0]] = arguments[1];
@@ -530,10 +504,15 @@
             return this.props.id;
         }
 
-        get clone() {
-
-
-
+        get mask() {
+            return {
+                node: this.node,
+                type: this.type,
+                props: Object.assign({}, this.props.style),
+                children: this.children.map((el) => {
+                    return is.string(el) ? el : el.mask();
+                })
+            };
         }
     }
 
