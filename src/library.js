@@ -3,9 +3,17 @@
 (function (w, d) {
     // random START
 
-    w.random = () => Math.random();
-    random.float = (min, max) => Math.random() * (max - min) + min;
-    random.int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+    w.random = function () {
+        return Math.random();
+    };
+
+    random.float = function (min, max) {
+        return Math.random() * (max - min) + min;
+    };
+
+    random.int = function (min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    };
 
     // random END
 
@@ -64,6 +72,17 @@
                 return true;
         }
     })();
+
+
+
+
+
+
+
+
+
+
+
 
     // is END
 
