@@ -214,6 +214,7 @@ ui.add('reveal', (function (w, d) {
         constructor(element, options) {
             super('reveal', element, options, function () {
                 let revealer = element.children('reveal-revealer');
+
                 if (revealer.length > 0)
                     this.nodes.revealer = revealer;
                 else
