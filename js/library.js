@@ -2,39 +2,29 @@
 
 (function (w, d) {
     // random START
-
-    w.random = function () {
-        return Math.random();
-    };
-
-    random.float = function (min, max) {
-        return Math.random() * (max - min) + min;
-    };
-
-    random.int = function (min, max) {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    };
-
+    w.random = () => Math.random();
+    random.float = (min, max) => Math.random() * (max - min) + min;
+    random.int = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
     // random END
-
 
     // is START
     let is = w.is = data => typeof data;
-
     is.null = data => data === null;
-
     is.array = Array.isArray;
-
-    is.window = data => data === window;
-
-    for (let dataType of 'string symbol number boolean undefined object function'.split(' '))
-        is[dataType] = data => typeof data === dataType;
-
+    is.window = data => data === w;
+    is.string = data => typeof data === 'string';
+    is.symbol = data => typeof data === 'symbol';
+    is.number = data => typeof data === 'number';
+    is.boolean = data => typeof data === 'boolean';
+    is.undefined = data => typeof data === 'undefined';
+    is.object = data => typeof data === 'object';
+    is.function = data => typeof data === 'function';
+    // for (let dataType of 'string symbol number boolean undefined object function'.split(' '))
+    //     is[dataType] = data => typeof data === dataType;
     is.numeric = data => {
         let type = is(data);
         return ( type === "number" || type === "string" ) && !isNaN( data - parseFloat( data ) );
     };
-
     is.emptyObject = data => {
         if (data == null)
             return true;
@@ -53,9 +43,7 @@
 
         return true;
     };
-
     is.objectObject = (data) => is.object(data) === true && Object.prototype.toString.call(data) === '[object Object]';
-
     is.plainObject = (() => {
         let fnToString = Object.prototype.hasOwnProperty.toString;
         let ObjectFunctionString = fnToString.call( Object );
@@ -72,41 +60,9 @@
                 return true;
         }
     })();
-
-
-
-
-
-
-
-
-
-
-
-
     // is END
 
-    // Array work
-
-    let helpers = (function () {
-        let methods = ('concat copyWithin entries every fill filter find findIndex forEach includes indexOf join keys lastIndexOf map pop push reduce reduceRight reverse shift slice some sort splice toLocaleString toString unshift').split(' ');
-
-        let helpers = {};
-        methods.forEach(function (value) {
-            helpers[value] = function () {
-                let method = Array.prototype[value];
-                return (method.bind.apply(method, arguments))();
-            }
-        });
-
-        return w.helper = helpers;
-    })();
-
-    // Array work end
-
-
     //animate START
-
     w.animate = (function () {
         let animations = [];
 
@@ -311,155 +267,6 @@
             }
         }
     };
-
     //animate END
-
-
-    $.normalizeAttrValue = function(value) {
-        if (value === "true")
-            return true;
-        else if (value === "fasle")
-            return false;
-        else if (/^[-+\d]?\d+(\.\d+)?$/.test(value))
-            return parseFloat(value);
-        else
-            return value;
-    };
-
-    // scrollSpy start
-
-
-    (function () {
-        let watchers = [];
-
-        let iteration = function () {
-            for (let watcher of watchers) {
-                let rect = watcher.element.getBoundingClientRect();
-
-
-            }
-        };
-
-        class scrollWatcher {
-            constructor (element, enter, leave) {
-
-                if (watchers.length > 0)
-                    watchers.push(this);
-                else {
-                    watchers.push(this);
-                    $(w).on('scroll', iteration);
-                }
-            }
-
-            destroy() {
-                watchers.splice(watchers.indexOf(this), 1);
-                if (watchers.length == 0)
-                    $(w).off('scroll', iteration);
-            }
-        }
-
-        let watcher = function(element, enter, leave) {
-            console.log(arguments);
-            this.element = element;
-            this.enter = enter;
-            this.leave = leave;
-
-            if (watchers.length > 0)
-                watchers.push(this);
-            else {
-                watchers.push(this);
-                $(w).on('scroll', iteration);
-            }
-        };
-
-
-        $.fn.scrollWatcher = function () {
-            if (this.data('scrollWatcher')) {
-                let watcher = this.data('scrollWatcher');
-
-                switch (arguments[0]) {
-
-                }
-            } else {
-                let _arguments = arguments;
-                this.each(function () {
-                    helper.unshift(_arguments, this);
-                    helper.unshift(_arguments, watcher);
-                    $(this).data('scrollWatcher', new (watcher.bind.apply(watcher, _arguments))());
-                });
-            }
-        };
-    })();
-
-
-    //scrollSpy end
-
-
-
-    // scroll lock START
-
-    (function () {
-        let wrapper;
-        let scrollTop;
-
-        $(d).on('DOMContentLoaded', function () {
-            let main = $('main');
-            if (main.length)
-                wrapper = main;
-            else
-                wrapper = $('body')
-        });
-
-        $.scrollLock = function () {
-            scrollTop = $(w).scrollTop();
-
-            wrapper.css({
-                position: 'fixed',
-                top: -scrollTop
-            });
-        };
-
-        $.scrollUnlock = function () {
-            wrapper.css({
-                position: '',
-                top: ''
-            });
-
-            $(w).scrollTop(scrollTop);
-
-            scrollMonitor.recalculateLocations();
-        };
-    })();
-
-    // scroll lock END
-
-    // $ library modification START
-
-    $.fn.grep = function (innerOb) {
-        return this.filter(function (i, v) {
-            return !innerOb.is(this);
-        });
-    };
-
-    $.fn.hasAttr = function (name) {
-        return this[0].hasAttribute(name);
-    };
-
-    $.fn.scrollParent = function( includeHidden ) {
-        var position = this.css( "position" ),
-            excludeStaticParent = position === "absolute",
-            overflowRegex = includeHidden ? /(auto|scroll|hidden)/ : /(auto|scroll)/,
-            scrollParent = this.parents().filter( function() {
-                var parent = $( this );
-                if ( excludeStaticParent && parent.css( "position" ) === "static" ) {
-                    return false;
-                }
-                return overflowRegex.test( parent.css( "overflow" ) + parent.css( "overflow-y" ) + parent.css( "overflow-x" ) );
-            }).eq( 0 );
-
-        return position === "fixed" || !scrollParent.length ? $( this[ 0 ].ownerDocument || document ) : scrollParent;
-    };
-
-    // $ library modification END
 
 })(window, document);

@@ -2,97 +2,57 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
     <title>jQuery select</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link href="/css/normalize.css" rel="stylesheet">
-    <link href="/css/grid.css" rel="stylesheet">
-    <link href="/css/offsets.css" rel="stylesheet">
-    <link href="/css/rearranging.css" rel="stylesheet">
-    <link href="/css/helpers.css" rel="stylesheet">
-    <link href="/css/ui.css" rel="stylesheet">
-
-    <link href="/css/ui.modal.css" rel="stylesheet">
-    <link href="/css/ui.notice.css" rel="stylesheet">
-    <link href="/css/ui.toggle.css" rel="stylesheet">
-    <link href="/css/ui.textfield.css" rel="stylesheet">
-    <link href="/css/ui.spinner.css" rel="stylesheet">
-    <link href="/css/ui.dropdown.css" rel="stylesheet">
-    <link href="/css/ui.select.css" rel="stylesheet">
-    <link href="/css/ui.tabs.css" rel="stylesheet">
-    <link href="/css/ui.reveal.css" rel="stylesheet">
-    <link href="/css/ui.impulse.css" rel="stylesheet">
-    <link href="/css/ui-resizable.css" rel="stylesheet">
-
-    <link href="/css/main-menu.css" rel="stylesheet">
-
-    <link href="/css/ui.theme.css" rel="stylesheet">
-    <link href="/css/common.css" rel="stylesheet">
-    <link href="/css/style.css" rel="stylesheet">
-
-
-    <link rel="stylesheet" href="/asdasd">
-
-    <script src="/dist/common.js" defer></script>
-    <script src="/dist/nav.js" defer></script>
-    <script src="/dist/test.js" defer></script>
+    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/grid.css" rel="stylesheet">
+    <link href="css/offsets.css" rel="stylesheet">
+    <link href="css/rearranging.css" rel="stylesheet">
+    <link href="css/helpers.css" rel="stylesheet">
+    <link href="css/ui.css" rel="stylesheet">
+    <link href="css/common.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 </head>
-
-
-
 <body class="main">
-
-    <div class="col md">
-
-    <nav id="nav" data-ui="sticky" hidden>
-        <button class="menu-trigger hidden-lg-up">
-            <hr>
-            <hr>
-            <hr>
-        </button>
-        <div class="sticky">
-            <div class="container">
-
-                <a class="logo">logo</a>
-
-                <div class=""></div>
-
-                <div class="col md"></div>
-
-                <div class="col md-3"></div>
-
-                <section class="menu-container hidden-md-down">
-                    <div>
-                        <menu>
-                            <li class="active"><a href="#">main</a></li>
-                            <li><a href="#">Thin</a></li>
-                            <li class="sub-menu">
-                                <a href="#">test 2</a>
-                                <button>keyboard_arrow_down</button>
-                                <ul>
-                                    <li><a href="#">test 2 1</a></li>
-                                    <li><a href="#">test 2 2</a></li>
-                                    <li><a href="#">test 2 3</a></li>
-                                    <li><a href="#">test 2 4</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="#">test 3</a></li>
-                            <li><a href="#">test 4</a></li>
-                            <li><a href="#">test 5</a></li>
-                        </menu>
-                    </div>
-                </section>
-
-            </div>
-        </div>
-    </nav>
-
     <main class="container-fluid row">
+        <nav id="nav" data-ui="sticky" hidden>
+            <button class="menu-trigger hidden-lg-up">
+                <hr>
+                <hr>
+                <hr>
+            </button>
+
+            <div class="sticky">
+                <div class="container">
+                    <section class="menu-container hidden-md-down">
+                        <div>
+                            <menu>
+                                <li class="active"><a href="#">main</a></li>
+                                <li><a href="#">Thin</a></li>
+                                <li class="sub-menu">
+                                    <a href="#">test 2</a>
+                                    <button>keyboard_arrow_down</button>
+                                    <ul>
+                                        <li><a href="#">test 2 1</a></li>
+                                        <li><a href="#">test 2 2</a></li>
+                                        <li><a href="#">test 2 3</a></li>
+                                        <li><a href="#">test 2 4</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">test 3</a></li>
+                                <li><a href="#">test 4</a></li>
+                                <li><a href="#">test 5</a></li>
+                            </menu>
+                        </div>
+                    </section>
+
+                </div>
+            </div>
+        </nav>
         <aside id="sidebar" class="col md-3 xl-2 raised" data-ui="sticky">
 
             <a href="" class="logo">
@@ -114,7 +74,6 @@
                 </menu>
             </nav>
         </aside>
-
         <section id="" class="col md-9 xl-10 pull-right" style="padding-top: 70px;">
     
             <section class="preview">
@@ -610,32 +569,10 @@
 
             </section>
         </section>
+        <div id="notifications"></div>
     </main>
-
-
-    <div id="notifications"></div>
-
-    <script src="/dist/jquery-3.1.1.min.js"></script>
-
-    <script src="/dist/library.js"></script>
-    <script src="/dist/virtualDOM.js"></script>
-    <script src="/dist/ui.validate.js"></script>
-
-    <script src="/dist/ui.js"></script>
-    <script src="/dist/ui.notice.js"></script>
-    <script src="/dist/ui.modal.js"></script>
-    <script src="/dist/ui.impulse.js"></script>
-    <script src="/dist/ui.tabs.js"></script>
-    <script src="/dist/scrollMonitor.js"></script>
-    <script src="/dist/ui.reveal.js"></script>
-    <script src="/dist/ui.toggle.js"></script>
-    <script src="/dist/ui.textfield.js"></script>
-    <script src="/dist/ui.spinner.js"></script>
-    <script src="/dist/ui.dropdown.js"></script>
-    <script src="/dist/ui.select.js"></script>
-    <script src="/dist/ui-resizable.js"></script>
-    <script src="/dist/ui.extras.js"></script>
-
+    <script src="js/library.js"></script>
+    <script src="js/virtualDOM.js"></script>
 </body>
 </html>
 
