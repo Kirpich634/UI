@@ -1,0 +1,3 @@
+@function gutter($name, $gutters: $grid-gutters) {
+	@return map-get($gutters, $name);
+}
