@@ -22,6 +22,16 @@ $grid-gutters: (
 
 @import "_gutter";
 
+.container {
+	margin-right: auto;
+	margin-left: auto;
+}
+
+%col {
+	flex: 0 0 100%;
+	width: 100%;
+	min-width: 100%;
+}
 
 @each $breakpoint-name, $breakpoint-value in $grid-breakpoints {
 	%gutter-#{$breakpoint-name} {
@@ -35,146 +45,153 @@ $grid-gutters: (
 		@extend %gutter-#{$breakpoint-name};
 	}
 
+	@if $breakpoint-value != 0 {
+		.col#{breakpoint-infix($breakpoint-name)}-auto {
+			@extend %col;
+		}
+	}
+
 	@for $i from 1 through $grid-columns {
 		.col-#{$breakpoint-name}-#{$i} {
+			@if $breakpoint-value != 0 {
+				@extend %col
+			}
+
 			@extend %gutter-#{$breakpoint-name};
 		}
 	}
 
 	@include respond-up($breakpoint-name) {
-		.hidden-#{$breakpoint-name}-up {
-			display: none;
+		.row {
+			margin-right: gutter($breakpoint-name)  / -2;
+			margin-left: gutter($breakpoint-name)  / -2;
 		}
 
-		.font-thin-#{$breakpoint-name} {
-			font-weight: 100;
+		@if $breakpoint-value != 0 {
+			.hidden#{breakpoint-infix($breakpoint-name)}-up {
+				display: none;
+			}
 		}
 
-		.font-extra-light-#{$breakpoint-name} {
-			font-weight: 200;
-		}
-
-		.font-light-#{$breakpoint-name} {
-			font-weight: 300;
-		}
-
-		.font-regular-#{$breakpoint-name}  {
-			font-weight: 400;
-		}
-
-		.font-medium-#{$breakpoint-name} {
-			font-weight: 500;
-		}
-
-		.font-semi-bold-#{$breakpoint-name} {
-			font-weight: 600;
-		}
-
-		.font-bold-#{$breakpoint-name} {
-			font-weight: 700;
-		}
-
-
-		.text-left-#{$breakpoint-name} {
+		.text-left#{breakpoint-infix($breakpoint-name)} {
 			text-align: left;
 		}
 
-		.text-right-#{$breakpoint-name} {
+		.text-right#{breakpoint-infix($breakpoint-name)} {
 			text-align: right;
 		}
 
-		.text-center-#{$breakpoint-name} {
+		.text-center#{breakpoint-infix($breakpoint-name)} {
 			text-align: center;
 		}
 
-		.text-justify-#{$breakpoint-name} {
+		.text-justify#{breakpoint-infix($breakpoint-name)} {
 			text-align: justify;
 		}
 
+		self-start#{breakpoint-infix($breakpoint-name)} {
+			align-self: flex-start;
+		}
 
-		.justify-content-start-#{$breakpoint-name} {
+		self-end#{breakpoint-infix($breakpoint-name)} {
+			align-self: flex-end;
+		}
+
+		self-center#{breakpoint-infix($breakpoint-name)} {
+			align-self: center;
+		}
+
+		self-baseline#{breakpoint-infix($breakpoint-name)} {
+			align-self: baseline;
+		}
+
+		self-stretch#{breakpoint-infix($breakpoint-name)} {
+			align-self: stretch;
+		}
+
+
+
+		.justify-content-start#{breakpoint-infix($breakpoint-name)} {
 			justify-content: flex-start;
 		}
 
-		.justify-content-center-#{$breakpoint-name} {
+		.justify-content-center#{breakpoint-infix($breakpoint-name)} {
 			justify-content: center;
 		}
 
-		.justify-content-end-#{$breakpoint-name} {
+		.justify-content-end#{breakpoint-infix($breakpoint-name)} {
 			justify-content: flex-end;
 		}
 
-		.justify-content-around-#{$breakpoint-name} {
+		.justify-content-around#{breakpoint-infix($breakpoint-name)} {
 			justify-content: space-around;
 		}
 
-		.justify-content-between-#{$breakpoint-name} {
+		.justify-content-between#{breakpoint-infix($breakpoint-name)} {
 			justify-content: space-between;
 		}
 
 
 
-		.align-content-start-#{$breakpoint-name} {
+		.align-content-start#{breakpoint-infix($breakpoint-name)} {
 			align-content: flex-start;
 		}
 
-		.align-content-end-#{$breakpoint-name} {
+		.align-content-end#{breakpoint-infix($breakpoint-name)} {
 			align-content: flex-end;
 		}
 
-		.align-content-center-#{$breakpoint-name} {
+		.align-content-center#{breakpoint-infix($breakpoint-name)} {
 			align-content: center;
 		}
 
-		.align-content-between-#{$breakpoint-name} {
+		.align-content-between#{breakpoint-infix($breakpoint-name)} {
 			align-content: space-between;
 		}
 
-		.align-content-around-#{$breakpoint-name} {
+		.align-content-around#{breakpoint-infix($breakpoint-name)} {
 			align-content: space-around;
 		}
 
-		.align-content-stretch-#{$breakpoint-name} {
+		.align-content-stretch#{breakpoint-infix($breakpoint-name)} {
 			align-content: stretch;
 		}
 
 
 
-		.items-start-#{$breakpoint-name} {
+		.items-start#{breakpoint-infix($breakpoint-name)} {
 			align-items: flex-start;
 		}
 
-		.items-end-#{$breakpoint-name} {
+		.items-end#{breakpoint-infix($breakpoint-name)} {
 			align-items: flex-end;
 		}
 
-		.items-center-#{$breakpoint-name} {
+		.items-center#{breakpoint-infix($breakpoint-name)} {
 			align-items: center;
 		}
 
-		.items-stretch-#{$breakpoint-name} {
+		.items-stretch#{breakpoint-infix($breakpoint-name)} {
 			align-items: stretch;
 		}
 
-		.items-baseline-#{$breakpoint-name} {
+		.items-baseline#{breakpoint-infix($breakpoint-name)} {
 			align-items: baseline;
 		}
-
-
 
 		.container {
 			width: floor($breakpoint-value / $grid-columns) * $grid-columns;
 			max-width: 100%;
 		}
 
-		.col-#{$breakpoint-name}-auto {
+		.col#{breakpoint-infix($breakpoint-name)}-auto {
 			flex: 0 0 auto;
 			width: auto;
 		}
 
 		@for $i from 1 through $grid-columns {
 			$col-width: 100% / $grid-columns * $i;
-			.col-#{$breakpoint-name}-#{$i} {
+			.col#{breakpoint-infix($breakpoint-name)}-#{$i} {
 				flex: 0 0 $col-width;
 				max-width: $col-width;
 				width: $col-width;
@@ -182,11 +199,14 @@ $grid-gutters: (
 		}
 	}
 
-	@include respond-down($breakpoint-name) {
-		.hidden-#{$breakpoint-name}-down {
-			display: none;
+	@if $breakpoint-value != 0 {
+		@include respond-down($breakpoint-name) {
+			.hidden-#{$breakpoint-name}-down {
+				display: none;
+			}
 		}
 	}
+
 
 	@include respond($breakpoint-name) {
 		.hidden-#{$breakpoint-name} {
@@ -197,9 +217,60 @@ $grid-gutters: (
 
 
 
-.nowrap {
+.inline-flex {
+	display: inline-flex;
+}
+
+.flex {
+	display: flex;
+}
+
+.flex-nowrap {
 	white-space: nowrap;
 }
+
+.center-block {
+	margin: auto;
+}
+
+
+.font-thin {
+	font-weight: 100;
+}
+
+.font-extra-light {
+	font-weight: 200;
+}
+
+.font-light {
+	font-weight: 300;
+}
+
+.font-regular  {
+	font-weight: 400;
+}
+
+.font-medium {
+	font-weight: 500;
+}
+
+.font-semi-bold {
+	font-weight: 600;
+}
+
+.font-bold {
+	font-weight: 700;
+}
+
+.font-extra-bold {
+	font-weight: 800;
+}
+
+.font-black {
+	font-weight: 900;
+}
+
+
 
 .lowercase {
 	text-transform: lowercase;
@@ -213,6 +284,13 @@ $grid-gutters: (
 	text-transform: capitalize;
 }
 
+
+
+.nowrap {
+	white-space: nowrap;
+}
+
+
 .round {
 	border-radius: 50%;
 }
@@ -222,7 +300,7 @@ $grid-gutters: (
 }
 
 
-img.fluid {
+.img-fluid {
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -235,7 +313,6 @@ img.fluid {
 	background-size: cover;
 }
 
-
 .no-margin {
 	margin-right: 0;
 	margin-left: 0;
@@ -246,7 +323,6 @@ img.fluid {
 	padding-left: 0;
 }
 
-
 .pull-right {
 	float: right;
 }
@@ -255,14 +331,8 @@ img.fluid {
 	float: left;
 }
 
-.inline-block {
-	display: inline-block;
-}
 
-.center-block {
-	margin-right: auto;
-	margin-left: auto;
-}
+
 
 .overflow-hidden {
 	overflow: hidden;

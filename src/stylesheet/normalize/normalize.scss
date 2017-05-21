@@ -62,7 +62,8 @@ pre,
 section,
 ul {
 	display: flex;
-	flex-wrap: wrap;
+	flex-flow: row wrap;
+	width: 100%;
 }
 
 *:focus {
@@ -99,7 +100,7 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 
-/
+
 /**
  * 1. Remove the bottom border in Chrome 57- and Firefox 39-.
  * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
@@ -132,22 +133,7 @@ samp {
 	font-size: 1em; /* 2 */
 }
 
-/**
- * Add the correct font style in Android 4.3-.
- */
 
-dfn {
-	font-style: italic;
-}
-
-/**
- * Add the correct background and color in IE 9-.
- */
-
-mark {
-	background-color: #ff0;
-	color: #000;
-}
 
 /**
  * Add the correct font size in all browsers.
